@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome, {{ user.username }}!</h1>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </header>
+        
+        <div class="upload-section">
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileInput" hidden required>
+                <label for="fileInput" class="upload-label">Choose File</label>
+                <button type="submit" class="upload-btn">Upload</button>
+            </form>
+            <div id="uploadStatus"></div>
+        </div>
+
+        <div class="files-container">
+            {% for file in files %}
+                <div class="file-card">
+                    <div class="filename">{{ file.filename }}</div>
+                    <div class="file-actions">
+                        <button onclick="window.location.href='{{ url_for('direct_download', uuid=file.uuid) }}'">Download</button>
+                        <button onclick="copyDirectLink('{{ url_for('direct_download', uuid=file.uuid, _external=True) }}')">Copy Link</button>
+                        <button onclick="window.location.href='{{ url_for('delete_file', file_id=file.id) }}'">Delete</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="notification" class="notification-hidden"></div>
+
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+</body>
+</html>

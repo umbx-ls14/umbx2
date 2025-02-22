@@ -1,0 +1,173 @@
+:root {
+    --bg-color: #1a1a1a;
+    --accent-color: #2d2d2d;
+    --text-color: #ffffff;
+    --primary-color: #7289da;
+    --hover-color: #5b6eae;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background: var(--accent-color);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.input-group {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.input-group label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.3s;
+    color: #888;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -10px;
+    left: 5px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background: var(--hover-color);
+}
+
+.register-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.error {
+    color: #ff4444;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logout-btn {
+    background: #ff4444;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.upload-section {
+    background: var(--accent-color);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.upload-label {
+    background: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.files-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.file-card {
+    background: var(--accent-color);
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+.file-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.file-actions button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+#notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.notification-hidden {
+    opacity: 0;
+    transform: translateY(100%);
+    visibility: hidden;
+}
